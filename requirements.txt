@@ -1,0 +1,4 @@
+pillow>=10.0
+pillow-heif>=1.0
+reverse_geocoder>=1.5
+pycountry>=22.0

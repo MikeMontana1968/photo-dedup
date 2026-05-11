@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+
+# Runtime artefacts that should never live in the repo
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.log
+*.pid
