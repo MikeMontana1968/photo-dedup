@@ -18,6 +18,7 @@ skipped.
 | `dedup_takeout.py` | Same idea, but for an extracted Google Photos Takeout. Re-bins files by capture date (`YYYY\YYYY-Mmm-DD\filename`), converts HEIC to JPEG, copies the JSON sidecars alongside, and auto-extracts any nested zip bundles. |
 | `run_takeout_pipeline.py` | End-to-end orchestrator: extracts three specific Takeout zips with a Windows long-path-aware unzipper, then invokes `dedup_takeout.run()`. Paths are hardcoded at the top of the file — edit them before reuse. |
 | `geo_tag.py` | Walks the destination tree, reads GPS from JSON sidecar (preferred) or EXIF (fallback), looks up the nearest city via an offline GeoNames DB, and appends `(City, ST)` or `(City, Admin1, Country)` to the filename. Locations matching the configured "home" (Edison, NJ) are skipped. |
+| `reorganize_e_pictures.py` | One-off helper for consolidating an earlier path-preserving import (e.g. `dedup_copy.py`'s `E_Pictures\` tree) into the date-based layout used by `dedup_takeout.py`. Walks the old folder, hashes each file, drops it if the hash is already canonical somewhere else, otherwise moves it to `YYYY\YYYY-Mmm-DD\` and records the new dest_path. No source-drive re-read required. |
 
 ## How it fits together
 
